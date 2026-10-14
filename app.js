@@ -1,4 +1,4 @@
-const homeView = document.getElementById('homeView');
+.const homeView = document.getElementById('homeView');
 const searchView = document.getElementById('searchView');
 const chatView = document.getElementById('chatView');
 const headerStatus = document.getElementById('headerStatus');
