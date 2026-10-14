@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101226" />
+  <meta name="description" content="Anjaanly — meet strangers, share stories. A simple random text chat prototype." />
+  <title>Anjaanly — Meet Strangers</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Anjaanly home"><span class="brand-mark">a</span><span>Anjaanly</span></a>
+    <div class="topbar-right"><span class="status-dot"></span><span id="headerStatus">Ready to connect</span><button class="icon-button" id="rulesBtn" aria-label="Community rules" title="Community rules">ⓘ</button></div>
+  </header>
+
+  <main>
+    <section id="homeView" class="hero view">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="sparkle">✦</span> A little less alone, one chat at a time</div>
+        <h1>Every stranger<br />has a <span class="gradient-text">story.</span></h1>
+        <p class="hero-sub">Meet someone new. Talk about anything. Leave with a new perspective.</p>
+        <div class="hero-actions">
+          <button id="startBtn" class="primary-button">Start chatting <span aria-hidden="true">↗</span></button>
+          <span class="free-note"><span class="check">✓</span> No account needed</span>
+        </div>
+        <div class="trust-row"><div class="avatar-stack"><span>🙂</span><span>🌻</span><span>🎧</span></div><span>Random conversations. Real people.</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="chat-float bubble-one"><span class="bubble-emoji">👋</span><div><strong>Hey, stranger!</strong><small>A new hello can go anywhere.</small></div></div>
+        <div class="chat-float bubble-two"><span class="bubble-emoji">☕</span><div><strong>What's your story?</strong><small>Good conversations start here.</small></div></div>
+        <div class="central-orb"><span>✦</span></div>
+        <div class="mini-star star-one">✧</div><div class="mini-star star-two">✦</div><div class="mini-star star-three">·</div>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card"><span class="feature-icon purple">↔</span><div><h3>Random by design</h3><p>Discover a new conversation every time.</p></div></article>
+        <article class="feature-card"><span class="feature-icon teal">⌁</span><div><h3>Just text, for now</h3><p>Simple messages. No pressure to share more.</p></div></article>
+        <article class="feature-card"><span class="feature-icon pink">♡</span><div><h3>Keep it kind</h3><p>Skip, block, or report when needed.</p></div></article>
+      </div>
+      <p class="prototype-note">Preview prototype · Live stranger matching needs a connected backend and published deployment.</p>
+    </section>
+
+    <section id="searchView" class="search-view view hidden">
+      <div class="search-card">
+        <button class="back-button" id="cancelSearch">← Back</button>
+        <div class="search-animation"><span class="search-ring ring1"></span><span class="search-ring ring2"></span><span class="search-person">✦</span></div>
+        <p class="eyebrow centered">THE NEXT CONVERSATION</p>
+        <h2 id="searchTitle">Looking for a stranger...</h2>
+        <p id="searchText">Finding someone who's ready to chat.</p>
+        <div class="search-progress"><span></span></div>
+        <p class="small-muted">This demo shows the experience. It doesn't connect to real people yet.</p>
+        <button id="demoChatBtn" class="primary-button full-button">Try chat preview <span>→</span></button>
+      </div>
+    </section>
+
+    <section id="chatView" class="chat-view view hidden">
+      <div class="chat-shell">
+        <div class="chat-header">
+          <div class="stranger-avatar">?</div><div class="stranger-info"><strong>Stranger <span class="online-indicator"></span></strong><small id="chatSubline">Connected for this demo</small></div>
+          <div class="chat-header-actions"><button class="subtle-button" id="reportBtn">⚑ Report</button><button class="subtle-button danger-text" id="blockBtn">⊘ Block</button><button class="icon-button" id="leaveChat" title="End chat" aria-label="End chat">✕</button></div>
+        </div>
+        <div class="safety-banner"><span>🛡️</span><span>Stay anonymous. Don't share passwords, your address, or financial details.</span></div>
+        <div id="messages" class="messages">
+          <div class="chat-start-label">TODAY · NEW CONNECTION</div>
+          <div class="system-message">You're connected with a stranger. Be kind and have a good conversation.</div>
+          <div class="message-row stranger-row"><div class="message-avatar">?</div><div class="message-content"><span class="message-author">Stranger</span><div class="message-bubble">Hey! 👋 How's your day going?</div><span class="message-time">Just now</span></div></div>
+        </div>
+        <div class="suggestions"><button class="suggestion-chip">How's your day?</button><button class="suggestion-chip">What's your favourite song?</button><button class="suggestion-chip">Tell me something fun</button></div>
+        <form id="messageForm" class="composer"><input id="messageInput" maxlength="500" autocomplete="off" placeholder="Write a message..." aria-label="Write a message" /><span id="charCount">0/500</span><button class="send-button" type="submit" aria-label="Send message">➤</button></form>
+        <div class="chat-footer"><span>Messages in this preview stay in this browser session.</span><button id="nextBtn" class="next-button">Next stranger <span>↗</span></button></div>
+      </div>
+      <p class="prototype-note">Demo only: messages are not delivered to another person.</p>
+    </section>
+  </main>
+
+  <footer class="footer"><span>© <span id="year"></span> Anjaanly</span><div><button class="footer-link" id="termsBtn">Terms</button><button class="footer-link" id="privacyBtn">Privacy</button><button class="footer-link" id="footerRulesBtn">Community guidelines</button></div><span>Made for better conversations ✦</span></footer>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card"><button class="modal-close" id="modalClose" aria-label="Close">✕</button><p class="eyebrow">ANJAANLY</p><h2 id="modalTitle">Community guidelines</h2><div id="modalContent" class="modal-content"></div><button class="primary-button full-button" id="modalOkay">Got it</button></div>
+  </div>
+  <div class="toast hidden" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
